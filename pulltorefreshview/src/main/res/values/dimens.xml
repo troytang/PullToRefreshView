@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default Parallax ImageView Height  -->
+    <dimen name="size_default_height">60dp</dimen>
+
+    <dimen name="custom_ball_size">10.5dp</dimen>
+    <dimen name="custom_balls_distance">35dp</dimen>
+
+</resources>
