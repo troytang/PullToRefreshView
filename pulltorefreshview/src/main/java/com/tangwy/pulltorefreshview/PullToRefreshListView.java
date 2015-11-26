@@ -187,7 +187,6 @@ public class PullToRefreshListView extends ListView {
             // to set the firstView.mTop to 0,
             // maybe use View.setTop() is more easy, but it just support from Android 3.0 (API 11)
             if (!mIsChanging) {
-                Log.d("findbugs", "scroll changed");
                 mImageView.getLayoutParams().height = Math.max(mImageView.getHeight() - (getPaddingTop() - firstView.getTop()), mImageViewHeight);
                 firstView.layout(firstView.getLeft(), 0, firstView.getRight(), firstView.getHeight());
                 mDrawable.setPercent((float) mImageView.getHeight() / (float) mTotalDragDistance);
@@ -224,7 +223,6 @@ public class PullToRefreshListView extends ListView {
                 mIsOutOfItem = false;
                 if (!isRefreshing()) {
                     if (mImageView.getHeight() > mTotalDragDistance && isRefreshOpen()) {
-                        /* 开始刷新 */
                         setRefreshing(true);
                         mOnRefreshListener.onRefresh();
 
@@ -297,7 +295,6 @@ public class PullToRefreshListView extends ListView {
                                       int maxOverScrollY, boolean isTouchEvent) {
             if (true == isTouchEvent && !isRefreshing()) {
                 if (deltaY < 0) {
-                    Log.d("findbugs", "over scroll by");
                     if (mImageView.getHeight() < mTotalDragDistance) {
                         mImageView.getLayoutParams().height = mImageView.getHeight() - deltaY / SCALE_NORMAL;
                     } else {
@@ -383,7 +380,7 @@ public class PullToRefreshListView extends ListView {
         }
 
         @Override
-        protected void applyTransformation(float interpolatedTime, /* interpolatedTime从0到1 */
+        protected void applyTransformation(float interpolatedTime,
                                            Transformation t) {
             int newHeight;
             newHeight = (int) (targetHeight - (float) extraHeight * (1f - interpolatedTime));
